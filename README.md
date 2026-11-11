@@ -1,5 +1,7 @@
 # 消消乐 · Match-3
 
+[![selftest](https://github.com/201634924cyh/match3/actions/workflows/selftest.yml/badge.svg)](https://github.com/201634924cyh/match3/actions/workflows/selftest.yml)
+
 用 **pygame** 手写的一个消消乐小游戏。单文件、零外部素材 —— 所有宝石图案、背景渐变、
 音效都是代码实时生成的，clone 下来直接就能跑。
 
