@@ -32,6 +32,25 @@ import sys
 
 import pygame
 
+
+def _relax_output_encoding():
+    """输出被重定向时改用 UTF-8。
+
+    Windows 上 stdout 接管道时默认用系统代码页，英文系统是 cp1252，
+    一 print 中文就 UnicodeEncodeError。交互式控制台保持原样 —— 那里
+    Python 走控制台 API，改编码反而会乱码。
+    """
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            if stream is None or stream.isatty():
+                continue
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError, OSError):
+            pass
+
+
+_relax_output_encoding()
+
 try:
     import numpy as np
 
