@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# 工具 / 编辑器
+.idea/
+.vscode/
+.DS_Store
+
+# 运行产物
+*.log
+screenshot*.png
+!preview/*.png
+
+# 本机 WorkBuddy 会话数据
+.workbuddy/

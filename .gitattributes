@@ -1,0 +1,15 @@
+# 默认按平台换行符处理文本，二进制文件不参与转换
+* text=auto
+
+*.py   text eol=lf
+*.md   text eol=lf
+*.txt  text eol=lf
+*.sh   text eol=lf
+# .bat 必须是 CRLF，否则 cmd 解析 goto/label 会出错
+*.bat  text eol=crlf
+
+*.png  binary
+*.jpg  binary
+*.gif  binary
+*.ttf  binary
+*.ttc  binary
