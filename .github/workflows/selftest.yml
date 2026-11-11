@@ -35,5 +35,7 @@ jobs:
 
       - name: Check the launcher scripts still parse
         if: runner.os == 'Windows'
+        # 提示语必须保持纯 ASCII：Windows runner 的控制台是 cp1252，
+        # 这条命令本身如果 print 中文就会 UnicodeEncodeError
         run: |
-          python -c "t=open('run.bat','rb').read(); assert all(b<128 for b in t), 'run.bat 含非 ASCII'; assert t.count(b'\r\n')==t.count(b'\n'), 'run.bat 存在裸 LF'; print('run.bat 编码/换行正常')"
+          python -c "t=open('run.bat','rb').read(); assert all(b<128 for b in t), 'run.bat has non-ASCII bytes'; assert t.count(b'\r\n')==t.count(b'\n'), 'run.bat has bare LF'; print('run.bat encoding/EOL ok')"
